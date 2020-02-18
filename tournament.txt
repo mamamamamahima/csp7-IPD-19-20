@@ -18,19 +18,19 @@ Section 1 - Player vs. Player
 --------------------------------------------------------------------------------
 Each column shows pts//round earned against each other player:
              P0     P1     P2     P3
-vs. P0 :      0   -249   -327   -307
-vs. P1 :   -249      0   -246   -246
-vs. P2 :   -142   -250      0    -83
-vs. P3 :   -168   -246    -80      0
-TOTAL  :   -559   -745   -653   -636
+vs. P0 :      0   -248   -358   -296
+vs. P1 :   -248      0   -247   -248
+vs. P2 :    -98   -250      0    -81
+vs. P3 :   -183   -248    -81      0
+TOTAL  :   -529   -746   -686   -625
 --------------------------------------------------------------------------------
 Section 2 - Leaderboard
 --------------------------------------------------------------------------------
 Average points per round:
 Team name (P#):  Score      with strategy name
-Team Coron(P0):       -140 points with Tit for Tat Backstabbing                
-E3        (P3):       -159 points with Collude but retaliate                   
-E2        (P2):       -164 points with Betray for every fifth turn             
+Team Coron(P0):       -133 points with Tit for Tat Backstabbing                
+E3        (P3):       -157 points with Collude but retaliate                   
+E2        (P2):       -172 points with Betray for every fifth turn             
 E1        (P1):       -187 points with Betray if they betrayed the last two tim
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -143,132 +143,138 @@ def move(my_history, their_history, my_score, their_score):
         return 'c' # otherwise collude.--------------------------------------------------------------------------------
 Section 3 - Game Data for Team Team Coronavirus
 --------------------------------------------------------------------------------
--249 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
--249 pt//ound: E1(P1) "Betray if they betrayed the last two times"
+-248 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-248 pt//ound: E1(P1) "Betray if they betrayed the last two times"
 C                                                                               
 Cc                                                                              
 
-                   bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-                     bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                   bbbbbbbbbbbbbbbbbbb
+                     bbbbbbbbbbbbbbbbb
 
 --------------------------------------------------------------------------------
--142 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
--327 pt//ound: E2(P2) "Betray for every fifth turn"
+-98 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-358 pt//ound: E2(P2) "Betray for every fifth turn"
 cB    B    B    B    B    B    B    B    B    B    B    B    B    B    B    B   
 Bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
 
- B    B    B    B  BbBBBBbBBBBbBBBBbBBBBbBB
-bccccbccccbccccbccccbccccbccccbccccbccccbcc
+ B    B    B    B  BbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBB
+bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
+
+bBBBBb
+bccccb
 
 --------------------------------------------------------------------------------
--168 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
--307 pt//ound: E3(P3) "Collude but retaliate"
+-183 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-296 pt//ound: E3(P3) "Collude but retaliate"
 C                                                                               
 Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 
-                   BbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbB
-ccccccccccccccccccccbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbc
-
-bBbBbBbBbBbBbBbBbBbBbB
-bcbcbcbcbcbcbcbcbcbcbc
+                   BbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBb
+ccccccccccccccccccccbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcb
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 Section 3 - Game Data for Team E1
 --------------------------------------------------------------------------------
--249 pt//round: E1(P1) "Betray if they betrayed the last two times"
--249 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-248 pt//round: E1(P1) "Betray if they betrayed the last two times"
+-248 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
 Cc                                                                              
 C                                                                               
 
-                     bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-                   bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                     bbbbbbbbbbbbbbbbb
+                   bbbbbbbbbbbbbbbbbbb
 
 --------------------------------------------------------------------------------
 -250 pt//round: E1(P1) "Betray if they betrayed the last two times"
--246 pt//ound: E2(P2) "Betray for every fifth turn"
+-247 pt//ound: E2(P2) "Betray for every fifth turn"
 cC                                                                              
 BCcccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
 
-                                                                   
-bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbc
+                                                                                
+bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
+
+                                
+bccccbccccbccccbccccbccccbccccbc
 
 --------------------------------------------------------------------------------
--246 pt//round: E1(P1) "Betray if they betrayed the last two times"
--246 pt//ound: E3(P3) "Collude but retaliate"
+-248 pt//round: E1(P1) "Betray if they betrayed the last two times"
+-248 pt//ound: E3(P3) "Collude but retaliate"
 CC                                                                              
 CCcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 
-                                           
-ccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                   
+ccccccccccccccccccccccccccccccccccc
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 Section 3 - Game Data for Team E2
 --------------------------------------------------------------------------------
--327 pt//round: E2(P2) "Betray for every fifth turn"
--142 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-358 pt//round: E2(P2) "Betray for every fifth turn"
+-98 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
 Bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
 cB    B    B    B    B    B    B    B    B    B    B    B    B    B    B    B   
 
-bccccbccccbccccbccccbccccbccccbccccbccccbcc
- B    B    B    B  BbBBBBbBBBBbBBBBbBBBBbBB
+bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
+ B    B    B    B  BbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBBbBBBB
+
+bccccb
+bBBBBb
 
 --------------------------------------------------------------------------------
--246 pt//round: E2(P2) "Betray for every fifth turn"
+-247 pt//round: E2(P2) "Betray for every fifth turn"
 -250 pt//ound: E1(P1) "Betray if they betrayed the last two times"
 BCcccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
 cC                                                                              
 
-bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbc
-                                                                   
+bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
+                                                                                
+
+bccccbccccbccccbccccbccccbccccbc
+                                
 
 --------------------------------------------------------------------------------
--80 pt//round: E2(P2) "Betray for every fifth turn"
--83 pt//ound: E3(P3) "Collude but retaliate"
+-81 pt//round: E2(P2) "Betray for every fifth turn"
+-81 pt//ound: E3(P3) "Collude but retaliate"
 BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCC
 cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCC
 
-BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCC
-cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCC
-
-BcCCCBcCCCBcCCCBcCCCB
-cBCCCcBCCCcBCCCcBCCCc
+BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCC
+cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCC
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 Section 3 - Game Data for Team E3
 --------------------------------------------------------------------------------
--307 pt//round: E3(P3) "Collude but retaliate"
--168 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-296 pt//round: E3(P3) "Collude but retaliate"
+-183 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
 Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 C                                                                               
 
-ccccccccccccccccccccbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbc
-                   BbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbB
-
-bcbcbcbcbcbcbcbcbcbcbc
-bBbBbBbBbBbBbBbBbBbBbB
+ccccccccccccccccccccbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcb
+                   BbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBb
 
 --------------------------------------------------------------------------------
--246 pt//round: E3(P3) "Collude but retaliate"
--246 pt//ound: E1(P1) "Betray if they betrayed the last two times"
+-248 pt//round: E3(P3) "Collude but retaliate"
+-248 pt//ound: E1(P1) "Betray if they betrayed the last two times"
 CCcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 CC                                                                              
 
-ccccccccccccccccccccccccccccccccccccccccccc
-                                           
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccccccccccccccccccccccccccccc
+                                   
 
 --------------------------------------------------------------------------------
--83 pt//round: E3(P3) "Collude but retaliate"
--80 pt//ound: E2(P2) "Betray for every fifth turn"
+-81 pt//round: E3(P3) "Collude but retaliate"
+-81 pt//ound: E2(P2) "Betray for every fifth turn"
 cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCC
 BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCC
 
-cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCC
-BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCC
-
-cBCCCcBCCCcBCCCcBCCCc
-BcCCCBcCCCBcCCCBcCCCB
+cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCC
+BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCC
 
 --------------------------------------------------------------------------------
