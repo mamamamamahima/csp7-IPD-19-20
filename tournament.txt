@@ -1,0 +1,274 @@
+--------------------------------------------------------------------------------
+Section 0 - Line up
+--------------------------------------------------------------------------------
+Player 0 (P0): Team Coronavirus, Tit for Tat Backstabbing
+        Collude until opponent backstabs, if they do, copy their previous move f
+        or the rest of the game until the last round, then backstab on round 100
+Player 1 (P1): E1, Betray if they betrayed the last two times
+        If both of the previous two moves of the opponent are betray, then betra
+        y the next turn. 
+Player 2 (P2): E2, Betray for every fifth turn
+        For every fifth turn, betray. Then, collude until another four turns hav
+        e passed.
+Player 3 (P3): E3, Collude but retaliate
+        Collude first round. Collude, except in a round after getting 
+        a severe punishment.
+--------------------------------------------------------------------------------
+Section 1 - Player vs. Player
+--------------------------------------------------------------------------------
+Each column shows pts//round earned against each other player:
+             P0     P1     P2     P3
+vs. P0 :      0   -249   -327   -307
+vs. P1 :   -249      0   -246   -246
+vs. P2 :   -142   -250      0    -83
+vs. P3 :   -168   -246    -80      0
+TOTAL  :   -559   -745   -653   -636
+--------------------------------------------------------------------------------
+Section 2 - Leaderboard
+--------------------------------------------------------------------------------
+Average points per round:
+Team name (P#):  Score      with strategy name
+Team Coron(P0):       -140 points with Tit for Tat Backstabbing                
+E3        (P3):       -159 points with Collude but retaliate                   
+E2        (P2):       -164 points with Betray for every fifth turn             
+E1        (P1):       -187 points with Betray if they betrayed the last two tim
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+example0--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'Team Coronavirus'
+strategy_name = 'Tit for Tat Backstabbing'
+strategy_description = 'Collude until opponent backstabs, if they do, copy their previous move for the rest of the game until the last round, then backstab on round 100'
+    
+def move(my_history, their_history, my_score, their_score):
+  ''' '''
+  if len(my_history) > 0:
+    if len(my_history) > 98: #It's the last round, backstab
+      return 'b'
+    elif their_history[-1]=='b':
+      return 'b' # Betray if severely punished last time,
+    elif len(my_history)==0: #It's the first round, collude
+      return 'c'
+  else:
+    return 'c' # otherwise collude if opponent also colludes.
+    --------------------------------------------------------------------------------
+example1--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'E1'
+strategy_name = 'Betray if they betrayed the last two times'
+strategy_description = 'If both of the previous two moves of the opponent are betray, then betray the next turn. '
+    
+def move(my_history, their_history, my_score, their_score):
+  ''''''
+  if len(my_history) > 1:
+    if their_history[-1] == 'b' and their_history[-2] == 'b':
+      return 'b'
+  else:
+    return 'c'
+  
+--------------------------------------------------------------------------------
+example2--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'E2'
+strategy_name = 'Betray for every fifth turn'
+strategy_description = 'For every fifth turn, betray. Then, collude until another four turns have passed.'
+    
+def move(my_history, their_history, my_score, their_score):
+    '''Make my move based on the history with this player.
+    
+    history: a string with one letter (c or b) per round that has been played with this opponent.
+    their_history: a string of the same length as history, possibly empty. 
+    The first round between these two players is my_history[0] and their_history[0]
+    The most recent round is my_history[-1] and their_history[-1]
+    
+    Returns 'c' or 'b' for collude or betray.
+    '''
+    # This player colludes on even numbered rounds (first round is round #0).
+    if len(my_history)%5 == 0:
+        return 'b'
+    else:
+        return 'c'
+    --------------------------------------------------------------------------------
+example3--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'E3'
+strategy_name = 'Collude but retaliate'
+strategy_description = '''\
+Collude first round. Collude, except in a round after getting 
+a severe punishment.'''
+    
+def move(my_history, their_history, my_score, their_score):
+    '''Make my move based on the history with this player.
+    
+    history: a string with one letter (c or b) per round that has been played with this opponent.
+    their_history: a string of the same length as history, possibly empty. 
+    The first round between these two players is my_history[0] and their_history[0]
+    The most recent round is my_history[-1] and their_history[-1]
+    
+    Returns 'c' or 'b' for collude or betray.
+    '''
+    if len(my_history)==0: # It's the first round; collude.
+        return 'c'
+    elif my_history[-1]=='c' and their_history[-1]=='b':
+        return 'b' # Betray if they were severely punished last time,
+    else:
+        return 'c' # otherwise collude.--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Team Coronavirus
+--------------------------------------------------------------------------------
+-249 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-249 pt//ound: E1(P1) "Betray if they betrayed the last two times"
+C                                                                               
+Cc                                                                              
+
+                   bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                     bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-142 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-327 pt//ound: E2(P2) "Betray for every fifth turn"
+cB    B    B    B    B    B    B    B    B    B    B    B    B    B    B    B   
+Bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
+
+ B    B    B    B  BbBBBBbBBBBbBBBBbBBBBbBB
+bccccbccccbccccbccccbccccbccccbccccbccccbcc
+
+--------------------------------------------------------------------------------
+-168 pt//round: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+-307 pt//ound: E3(P3) "Collude but retaliate"
+C                                                                               
+Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                   BbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbB
+ccccccccccccccccccccbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbc
+
+bBbBbBbBbBbBbBbBbBbBbB
+bcbcbcbcbcbcbcbcbcbcbc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team E1
+--------------------------------------------------------------------------------
+-249 pt//round: E1(P1) "Betray if they betrayed the last two times"
+-249 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+Cc                                                                              
+C                                                                               
+
+                     bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                   bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250 pt//round: E1(P1) "Betray if they betrayed the last two times"
+-246 pt//ound: E2(P2) "Betray for every fifth turn"
+cC                                                                              
+BCcccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
+
+                                                                   
+bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbc
+
+--------------------------------------------------------------------------------
+-246 pt//round: E1(P1) "Betray if they betrayed the last two times"
+-246 pt//ound: E3(P3) "Collude but retaliate"
+CC                                                                              
+CCcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                           
+ccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team E2
+--------------------------------------------------------------------------------
+-327 pt//round: E2(P2) "Betray for every fifth turn"
+-142 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+Bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
+cB    B    B    B    B    B    B    B    B    B    B    B    B    B    B    B   
+
+bccccbccccbccccbccccbccccbccccbccccbccccbcc
+ B    B    B    B  BbBBBBbBBBBbBBBBbBBBBbBB
+
+--------------------------------------------------------------------------------
+-246 pt//round: E2(P2) "Betray for every fifth turn"
+-250 pt//ound: E1(P1) "Betray if they betrayed the last two times"
+BCcccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbcccc
+cC                                                                              
+
+bccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbccccbc
+                                                                   
+
+--------------------------------------------------------------------------------
+-80 pt//round: E2(P2) "Betray for every fifth turn"
+-83 pt//ound: E3(P3) "Collude but retaliate"
+BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCC
+cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCC
+
+BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCC
+cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCC
+
+BcCCCBcCCCBcCCCBcCCCB
+cBCCCcBCCCcBCCCcBCCCc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team E3
+--------------------------------------------------------------------------------
+-307 pt//round: E3(P3) "Collude but retaliate"
+-168 pt//ound: Team Coronavirus(P0) "Tit for Tat Backstabbing"
+Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+C                                                                               
+
+ccccccccccccccccccccbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbc
+                   BbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbBbB
+
+bcbcbcbcbcbcbcbcbcbcbc
+bBbBbBbBbBbBbBbBbBbBbB
+
+--------------------------------------------------------------------------------
+-246 pt//round: E3(P3) "Collude but retaliate"
+-246 pt//ound: E1(P1) "Betray if they betrayed the last two times"
+CCcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CC                                                                              
+
+ccccccccccccccccccccccccccccccccccccccccccc
+                                           
+
+--------------------------------------------------------------------------------
+-83 pt//round: E3(P3) "Collude but retaliate"
+-80 pt//ound: E2(P2) "Betray for every fifth turn"
+cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCC
+BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCC
+
+cBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCCcBCCC
+BcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCCBcCCC
+
+cBCCCcBCCCcBCCCcBCCCc
+BcCCCBcCCCBcCCCBcCCCB
+
+--------------------------------------------------------------------------------
